@@ -1,0 +1,17 @@
+  <div class ="full-page-hero-image">
+    <div class="hero-text">
+      <h1>Welcome to Travellr</h1>
+
+      <p>Existing User?</p>
+      <%=form_tag("/login", method: "GET") do %>
+      <%=submit_tag "Sign In", class: "btn btn-info"%>
+      <%end%>
+      <br>
+
+      <p>New to Travellr?</p>
+      <%=form_tag("/users/new", method: "GET") do %>
+      <%=submit_tag "Create an Account", class: "btn btn-info"%>
+      <%end%>
+    </div>
+
+  </div>

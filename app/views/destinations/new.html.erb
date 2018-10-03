@@ -1,0 +1,35 @@
+
+<%= render "itineraries/itinerary_info"%>
+<div class="container-fluid">
+  <div class="text-center">
+    <%= form_tag("/itineraries/#{@itinerary.id}/edit", method: :get) do %>
+      <%=submit_tag "Edit Itinerary Details", class: "btn btn-info" %>
+    <%end%>
+  </div>
+  <br>
+  <h4 class = "text-center white-text">Add a Stop</h4>
+  <% if @destination.errors %>
+    <% @destination.errors.full_messages.each do |message| %>
+      <p class = "error"><%=message%></p>
+    <%end%>
+  <%end%>
+  <div class="offset-3 col-6">
+    <%= form_for(@destination) do |f|%>
+      <%= f.label :Stop_Location, class: "form-text" %>
+      <%= f.text_area :name, class: "form-control" %>
+      <%= f.label :Region, class: "form-text" %>
+      <%= f.collection_select(:region, Destination.regions, :to_s, :to_s,class: "form-control")%>
+      <%= f.label :description, class: "form-text" %>
+      <%= f.text_area :description, class: "form-control" %>
+      <%= f.hidden_field :itinerary_id, :value => @itinerary.id %> <br>
+      <%= f.submit :Create, class: "btn btn-info" %>
+    <%end%>
+  </div>
+    <h4 class = "text-center white-text">Current Stops</h4>
+    <% if !@itinerary.destinations.empty?%>
+      <%= render partial: "itineraries/destination_cards", locals: {itinerary: @itinerary} %>
+    <% else %>
+      <p class = "white-text">Currently Have No stops</p>
+    <%end%>
+
+</div>

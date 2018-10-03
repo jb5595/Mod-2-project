@@ -1,0 +1,55 @@
+
+<br>
+  <% itineraries.each do |itinerary| %>
+      <div class="card col-9 offset-1" id = 'no-side-padding'>
+        <div class="card-header">
+          <div class="row">
+            <div class="col-10">
+              <img src="<%=itinerary.user.profile_pic%>" class = "user-feed-pic">
+              <%=link_to itinerary.user.user_name, user_path(itinerary.user)%> posted
+              <%=link_to itinerary.name, itinerary_path(itinerary)%>
+            </div>
+            <div class="col-2">
+              <% if itinerary.user.id != current_user.id %>
+                <!-- Follow Button -->
+                  <% if !current_user.following.include?(itinerary.user)%>
+                    <%= form_tag("/users/#{itinerary.user.id}/follow", method: :post) do %>
+                      <%=submit_tag "Follow", class: "btn btn-info" %>
+                    <%end%>
+                    <!-- UnFollow Button -->
+                   <%else%>
+                     <%= form_tag("/users/#{itinerary.user.id}/unfollow", method: :post) do %>
+                       <%=submit_tag "Unfollow",  class: "btn btn-info" %>
+                     <%end%>
+                  <%end%>
+                <%end%>
+            </div>
+          </div>
+        </div>
+        <div class="card-body ">
+          <div class="text-center">
+            <% itinerary.destinations[0..4].each do |destination| %>
+              <img src="<%=destination.picture_url%>" alt="" class = "destination-feed-pic">
+            <%end%>
+          </div>
+          <br>
+
+          <div class="row">
+            <div class = 'col-6'>
+              <p class="card-text">Budget: <%=itinerary.budget_category%></p>
+            </div>
+            <div class = 'col-5 offset-1 row'>
+              <div class="col-6">
+                <%= render partial: "partials/like_button", locals: {object:itinerary} %>
+              </div>
+              <div class="col-6">
+                <%= render partial: "partials/wishlist_buttons", locals: {object:itinerary} %>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+
+  <%end%>

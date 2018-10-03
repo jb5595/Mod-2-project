@@ -1,0 +1,24 @@
+<div class = "hero-image-small" >
+  <h5 class = "hero-text">Enter Trip Details</h5>
+</div>
+  <div class="container-fluid">
+    <div class="offset-3 col-6">
+    <% if @itinerary.errors %>
+      <% @itinerary.errors.full_messages.each do |message| %>
+        <p class = "error"><%=message%></p>
+      <%end%>
+    <%end%>
+    <br>
+
+    <%= form_for(@itinerary) do |f|%>
+      <%= f.label :name,class: "form-text" %>
+      <%= f.text_area :name,class: "form-control" %>
+      <%= f.label :budget,class: "form-text" %>
+      <%= f.collection_select(:budget_category, Itinerary.budget_categories, :to_s, :to_s, class: "form-control") %>
+      <%= f.label :duration,class: "form-text" %>
+      <%= f.text_area :duration, class: "form-control" %>
+      <%= f.hidden_field :user_id, :value => current_user.id %> <br>
+      <%= f.submit :Create,  class: "btn btn-info" %>
+    <% end %>
+  </div>
+</div>

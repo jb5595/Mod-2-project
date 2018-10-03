@@ -1,0 +1,31 @@
+<div class="hero-image-small">
+  <div class="hero-text">
+    <h2>Explore Your Feed </h2> <br><br>
+  </div>
+<div class="row force-to-bottom">
+    <div class="btn-toolbar mb-3 col-4" role="toolbar" aria-label="Toolbar with button groups">
+       <%= link_to "Most Recent", user_feed_path(:sort => "Most Recent"), class: "btn btn-info"%>
+       <%= link_to "User", user_feed_path(:sort => "User"),class: "btn btn-info" %>
+       <%= link_to "Budget", user_feed_path(:sort => "Budget"),class: "btn btn-info" %>
+    </div>
+    <div class="input-group col-5 offset-3">
+      <%=form_tag("/users/feed", method: "get", class: "form-inline") do %>
+        <div class="input-group-prepend">
+          <%= submit_tag "Filter By Destination", class: "input-group-text"%>
+        </div>
+        <%=text_field_tag :search,"" , class: "form-control"%>
+        <%end%>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+
+
+  <% if @itineraries.empty? %>
+    <p>You Don't Currently Follow Anyone</p>
+    <p><%= link_to "Browse Itineraries", itineraries_path %> </p>
+  <%else %>
+    <%= render partial: 'itineraries/itineraries', locals: {itineraries: @itineraries} %>
+  <%end%>
+</div>

@@ -1,0 +1,27 @@
+<div class="hero-image-small">
+  <div class="hero-text">
+    <h2>Explore Itineraries </h2> <br><br>
+  </div>
+  <div class="row force-to-bottom">
+    <div class="btn-toolbar mb-3 col-4" role="toolbar" aria-label="Toolbar with button groups">
+       <%= link_to "Most Recent", itineraries_path(:sort => "Most Recent"), class: "btn btn-info"%>
+       <%= link_to "User", itineraries_path(:sort => "User"),class: "btn btn-info" %>
+       <%= link_to "Budget", itineraries_path(:sort => "Budget"),class: "btn btn-info" %>
+    </div>
+    <div class="input-group col-5 offset-3">
+        <%=form_tag("/itineraries", method: "get", class: "form-inline") do %>
+      <div class="input-group-prepend">
+        <%= submit_tag "Filter By Destination", class: "input-group-text"%>
+      </div>
+        <%=text_field_tag :search,"" , class: "form-control"%>
+      <%end%>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+
+
+
+  <%= render partial: "itineraries", locals:{ itineraries: @itineraries} %>
+</div>

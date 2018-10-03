@@ -1,0 +1,18 @@
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top card-image" src="<%=destination.picture_url%>" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%=destination.name%></h5>
+    <p class="card-text"><%=destination.description%></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Continent: <%=destination.region%></li>
+
+  </ul>
+  <div class="card-body">
+    <!-- Display Stop Edit and Delete Buttons For Your Own Itineraries -->
+    <% if @itinerary.user_id == current_user.id%>
+      <%= link_to "Edit Stop", edit_destination_path(destination), class: "btn btn-warning"%>
+      <%= link_to "Delete Stop", delete_destination_path(destination), class:"btn btn-danger"%>
+    <%end%>
+  </div>
+</div>

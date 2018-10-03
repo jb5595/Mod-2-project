@@ -1,0 +1,7 @@
+<div class="card" style="width: 9rem;">
+  <img class="card-img-top card-image-small" src="<%=itinerary.picture_url%>" alt="Card image cap">
+  <div class="card-body">
+    <h6 class="card-title"><%=link_to itinerary.shortened_name, itinerary_path(itinerary)%></h6>
+    <%= render partial: "partials/wishlist_buttons", locals: {object: itinerary}%>
+  </div>
+</div>

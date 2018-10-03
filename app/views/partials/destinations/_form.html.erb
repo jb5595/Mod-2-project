@@ -1,0 +1,9 @@
+<%= form_for(@destination) do |f|%>
+  <%= f.label :Stop_Location, class: "form-text" %>
+  <%= f.text_area :name, class: "form-control" %>
+  <%= f.label :region, class: "form-text" %>
+  <%= f.collection_select(:region, Destination.regions, :to_s, :to_s,class: "form-control")%>
+  <%= f.label :description, class: "form-text" %>
+  <%= f.text_area :description, class: "form-control" %><br>
+  <%= f.submit :Create, class: "btn btn-info" %>
+<%end%>

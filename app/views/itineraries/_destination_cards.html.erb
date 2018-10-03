@@ -1,0 +1,9 @@
+<%itinerary.destinations.each.with_index do |destination, index|%>
+  <% if index % 3 == 0%> <div class="row"> <%end%>
+    <div class="col-sm-4">
+      <%= render partial: "destinations/card", locals: {destination: destination} %>
+    </div>
+  <%if index%3 == 2%></div> <br><br> <%end%>
+<%end%>
+<% if @itinerary.destinations.length % 3 != 0 %> </div> <%end%>
+  <br> <br>

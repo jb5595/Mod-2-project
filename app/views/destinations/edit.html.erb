@@ -1,0 +1,12 @@
+
+<div class = "hero-image-small" >
+  <h5 class = "hero-text">Edit <%=@destination.name%></h5>
+</div>
+<div class="container-fluid">
+  <div class="offset-3 col-6">
+      <% if @destination.errors %>
+        <%= render partial: "partials/form_error", locals:{object:@destination} %>
+      <%end%><br>
+      <%= render "partials/destinations/form" %>
+  </div>
+</div>

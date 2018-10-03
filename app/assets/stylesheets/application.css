@@ -13,3 +13,137 @@
  *= require_tree .
  *= require_self
  */
+
+ body, html {
+    height: 100%;
+    width:100%;
+    overflow:scroll;
+    background-color: grey;
+}
+.container-fluid {
+  background-color: grey;
+  margin-top: 0;
+  overflow: scroll;
+  height: 100%;
+}
+
+/* The hero image */
+.hero-image {
+    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?ixlib=rb-0.3.5&s=509df440981436b4c96e5e2dd42b9977&auto=format&fit=crop&w=750&q=80");
+
+    /* Set a specific height */
+    height: 70%;
+
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.full-page-hero-image {
+    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?ixlib=rb-0.3.5&s=509df440981436b4c96e5e2dd42b9977&auto=format&fit=crop&w=750&q=80");
+
+    /* Set a specific height */
+    height: 100%;
+    overflow:scroll;
+
+
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.hero-image-small {
+    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?ixlib=rb-0.3.5&s=509df440981436b4c96e5e2dd42b9977&auto=format&fit=crop&w=750&q=80");
+
+    /* Set a specific height */
+    height: 30%;
+
+
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    margin-bottom: 0;
+}
+
+
+
+/* Place text in the middle of the image */
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+  .form-text{
+    color: white
+  }
+  .error{
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+  }
+
+  .profile-picture{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid white 4px;
+    }
+
+
+    .profile-name {
+      padding-top: 2em;
+      color:white;
+    }
+
+    .white-text{
+      color:white !important;
+    }
+
+    .card-image {
+    height: 175px;
+    }
+    .user-feed-pic{
+      height: 50px;
+      width: auto;
+      border-radius: 50%
+    }
+
+    .card-image-small {
+    height: 100px;
+    }
+  .centered{
+    text-align: center;
+
+  }
+
+  .destination-feed-pic{
+    height: 100px;
+
+  }
+  .force-to-bottom {
+  position:absolute;
+  bottom: 0%;
+  width: 100%;
+}
+
+  #no-side-padding{
+    padding-left: 0;
+    padding-right:0;
+  }

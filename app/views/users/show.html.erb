@@ -1,0 +1,73 @@
+<div class ='hero-image'>
+    <br>
+    <h4 class= "profile-name text-center"><%=@user.full_name%></h4> <br>
+    <img class = "profile-picture" src = '<%=@user.profile_pic%>'>
+</div>
+
+<div class ="container-fluid">
+<br><br>
+
+  <% if @user.id != current_user.id %>
+  <div class="centered">
+      <!-- Follow Button -->
+      <% if !current_user.following.include?(@user)%>
+        <%= form_tag("/users/#{@user.id}/follow", method: :post) do %>
+          <%=submit_tag "Follow", class: "btn btn-info" %>
+        <%end%>
+        <!-- UnFollow Button -->
+       <%else%>
+       <%= form_tag("/users/#{@user.id}/unfollow", method: :post) do %>
+         <%=submit_tag "Unfollow",  class: "btn btn-info" %>
+       <%end%>
+      <%end%>
+  </div>
+  <%end%>
+  <!-- Displays option to add itinerary if you are looking at your own profile -->
+  <% if @user.id == current_user.id%>
+    <div class="centered">
+      <%= form_tag("/itineraries/new", method: :get) do %>
+        <%=submit_tag "Create New Itinerary", class: "btn btn-info" %>
+      <%end%>
+    </div>
+  <%end%>
+
+  <!-- User's Itineraries -->
+<br>
+<div class="offset-1">
+  <h5 class="white-text"><%="#{@user.first_name}'s Itineraries"%></h5> <br>
+    <%@user.itineraries.each.with_index do |itinerary, index|%>
+      <% if index % 5 == 0%> <div class="row"> <%end%>
+        <div class="col-sm-2">
+          <%= render partial: "itineraries/small_card", locals: {itinerary: itinerary} %>
+        </div>
+      <%if index%5 == 4%></div> <br> <%end%>
+    <%end%>
+    <% if @user.itineraries.length % 5 != 0 %> </div> <%end%> <br>
+
+
+
+  <!-- Users Destinations -->
+  <h5 class="white-text"><%="#{@user.first_name}'s Destinations"%></h5> <br>
+      <%@user.destinations.each.with_index do |destination, index|%>
+        <% if index % 5 == 0%> <div class="row"> <%end%>
+          <div class="col-sm-2">
+            <%= render partial: "destinations/card_small", locals: {destination: destination} %>
+          </div>
+        <%if index%5 == 4%></div> <br> <%end%>
+    <%end%>
+      <% if @user.destinations.length % 5 != 0 %> </div> <%end%>
+
+      <h5 class="white-text"><%="#{@user.first_name}'s Wishlist"%></h5> <br>
+        <%@user.wishlist.each.with_index do |itinerary, index|%>
+          <% if index % 5 == 0%> <div class="row"> <%end%>
+            <div class="col-sm-2">
+              <%= render partial: "itineraries/small_card", locals: {itinerary: itinerary} %>
+            </div>
+          <%if index%5 == 4%></div> <br> <%end%>
+        <%end%>
+        <% if @user.itineraries.length % 5 != 0 %> </div> <%end%> <br>
+
+  </div>
+
+
+</div>

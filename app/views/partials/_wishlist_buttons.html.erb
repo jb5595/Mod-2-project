@@ -1,0 +1,15 @@
+<% if object.user.id != current_user.id %>
+  <% if !current_user.wishlist.include?(object)%>
+    <%= form_tag("/users/#{object.id}/add_to_wish_list", method: :post) do %>
+      <button type="submit" class = "btn btn-info">
+          <i class="fas fa-plus"></i> Wishlist
+      </button>    <%end%>
+  <% else %>
+    <%= form_tag("/users/#{object.id}/remove_from_wish_list", method: :post) do %>
+      <!-- <%=submit_tag "Remove From Wish List", class: "btn btn-info" %> -->
+      <button type="submit" class = "btn btn-info">
+          <i class="fas fa-minus"></i> Wishlist
+      </button>
+    <%end%>
+  <%end%>
+<%end%>

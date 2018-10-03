@@ -1,0 +1,9 @@
+<div class="btn-group" role="group" aria-label="Basic example">
+  <h4 class = "white-text btn btn-info"><%=object.likes%>  <i class="far fa-thumbs-up"></i></h4> <br>
+  <!-- Displays Like Button if Itinerary is not your own -->
+  <% if object.user_id != current_user.id%>
+        <%= form_tag("/itineraries/#{object.id}/like", method: :post) do %>
+          <%=submit_tag "Like", class: "btn btn-info" %>
+        <%end%>
+  <%end%>
+</div>

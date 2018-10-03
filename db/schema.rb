@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_01_150713) do
+ActiveRecord::Schema.define(version: 2018_10_03_205301) do
 
   create_table "destinations", force: :cascade do |t|
-    t.string "picture_url"
+    t.string "picture_url", default: "https://cdn.tutsplus.com/net/uploads/legacy/958_placeholders/placehold.gif"
     t.string "description"
     t.string "name"
     t.string "region"
@@ -24,11 +24,12 @@ ActiveRecord::Schema.define(version: 2018_10_01_150713) do
   create_table "itineraries", force: :cascade do |t|
     t.integer "user_id"
     t.string "duration"
-    t.integer "likes"
+    t.integer "likes", default: 0
     t.string "budget_category"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "picture_url", default: "https://cdn.tutsplus.com/net/uploads/legacy/958_placeholders/placehold.gif"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -58,10 +59,15 @@ ActiveRecord::Schema.define(version: 2018_10_01_150713) do
     t.string "password_confirmation"
     t.string "password_digest"
     t.string "bio"
-    t.string "profile_pic"
+    t.string "profile_pic", default: "https://cdn.tutsplus.com/net/uploads/legacy/958_placeholders/placehold.gif"
     t.string "thumbnail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "wishlist_itineraries", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "itinerary_id"
   end
 
 end
