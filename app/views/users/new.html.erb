@@ -1,4 +1,5 @@
 <div class = "full-page-hero-image">
+  <br><br>
   <div class="offset-3 col-6">
   <% if @user.errors %>
     <%= render partial: "partials/form_error", locals:{object:@user} %>
@@ -16,6 +17,7 @@
       <%= f.text_area :last_name, class: "form-control"%> <br>
       <%= f.submit :Create,  class: "btn btn-info" %>
       <%end%>
+
   </div>
 
 </div>
