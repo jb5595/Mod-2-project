@@ -34,7 +34,7 @@ class DestinationsController < ApplicationController
 
   def destroy
     session[:return_to] = request.referer
-    current_user.destroy(params[:id])
+    current_user.(params[:id])
     redirect_to(session[:return_to])
   end
 

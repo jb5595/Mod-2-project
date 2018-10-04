@@ -1,8 +1,6 @@
-<div class="hero-image-small">
-  <div class="hero-text">
-    <h2>Explore Itineraries </h2> <br><br>
-  </div>
-  <div class="row force-to-bottom">
+<div class="full-page-hero-image">
+  <h2 class = "white-text centered">Explore Itineraries </h2> <br><br>
+  <div class="row">
     <div class="btn-toolbar mb-3 col-4" role="toolbar" aria-label="Toolbar with button groups">
        <%= link_to "Most Recent", itineraries_path(:sort => "Most Recent"), class: "btn btn-info"%>
        <%= link_to "User", itineraries_path(:sort => "User"),class: "btn btn-info" %>
@@ -17,8 +15,6 @@
       <%end%>
     </div>
   </div>
-</div>
 
-<div class="container-fluid">
   <%= render partial: "itineraries", locals:{ itineraries: @itineraries} %>
 </div>

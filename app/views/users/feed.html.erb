@@ -1,8 +1,7 @@
-<div class="hero-image-small">
-  <div class="hero-text">
-    <h2>Explore Your Feed </h2> <br><br>
-  </div>
-<div class="row force-to-bottom">
+<div class="full-page-hero-image">
+
+    <h2 class= "white-text centered">Explore Your Feed </h2> <br><br>
+    <div class="row">
     <div class="btn-toolbar mb-3 col-4" role="toolbar" aria-label="Toolbar with button groups">
        <%= link_to "Most Recent", user_feed_path(:sort => "Most Recent"), class: "btn btn-info"%>
        <%= link_to "User", user_feed_path(:sort => "User"),class: "btn btn-info" %>
@@ -17,9 +16,7 @@
         <%end%>
     </div>
   </div>
-</div>
 
-<div class="container-fluid">
 
 
   <% if @itineraries.empty? %>

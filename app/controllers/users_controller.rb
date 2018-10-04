@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    byebug
+
     @user = User.new(user_params)
     if @user.save
       byebug
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   end
 
   def feed
-    byebug
+
     @user = current_user
     if params[:search]
       @itineraries = @user.feed_filtered_by_destination(params[:search])
@@ -54,13 +54,11 @@ class UsersController < ApplicationController
   end
 
   def add_to_wish_list
-    byebug
     session[:return_to] = request.referer
     current_user.wishlist<<(Itinerary.find(params[:itinerary_id]))
     redirect_to(session[:return_to])
   end
   def remove_from_wish_list
-    byebug
     session[:return_to] = request.referer
     current_user.wishlist.delete(Itinerary.find(params[:itinerary_id]))
     redirect_to(session[:return_to])

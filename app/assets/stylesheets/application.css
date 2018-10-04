@@ -101,6 +101,9 @@
 
   .profile-picture{
     display: block;
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
     margin-left: auto;
     margin-right: auto;
     border: solid white 4px;
@@ -121,12 +124,13 @@
     }
     .user-feed-pic{
       height: 50px;
-      width: auto;
+      width: 50px;
       border-radius: 50%
     }
 
     .card-image-small {
     height: 100px;
+    wid
     }
   .centered{
     text-align: center;
@@ -135,6 +139,9 @@
 
   .destination-feed-pic{
     height: 100px;
+    width: 100px;
+    overflow: hidden;
+    border: solid grey 1px;
 
   }
   .force-to-bottom {
@@ -144,6 +151,9 @@
 }
   .no-bottom-margin{
     margin-bottom: 0;
+  }
+  .fixed{
+    position:fixed;
   }
 
   #no-side-padding{
