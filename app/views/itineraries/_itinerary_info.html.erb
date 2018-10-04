@@ -1,19 +1,20 @@
 <div class="hero-image">
-  <br><br><br>
   <div class="text-center centered">
-    <h2 class = "white-text"><%=@itinerary.name%></h2> <br><br>
+    <h2 class = "white-text"><%=@itinerary.name%></h2> <br>
   </div>
   <div class = "row">
-    <div class = "offset-1">
+    <div class = "offset-1 col-5">
       <h4 class ="white-text">Budget Level: <%=@itinerary.budget_category%></h4>
     </div>
-    <div class = "offset-4">
+    <div class = "offset-2">
       <h4 class ="white-text">Duration: <%=@itinerary.duration%></h4>
-      <br><br>
     </div>
   </div>
   <div class="centered text-center">
     <h4 class ="white-text">Region: <%=@itinerary.region%></h4>
   </div>
-   <br>
+  <img class = "profile-picture" src = '<%=@itinerary.picture_url%>'>
+
+
 </div>
+<br>

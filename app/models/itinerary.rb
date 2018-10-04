@@ -1,4 +1,5 @@
 class Itinerary < ApplicationRecord
+  mount_uploader :picture_url, ItineraryPicUploader
   ##################Associations##########################
   belongs_to :user
   has_many :stops

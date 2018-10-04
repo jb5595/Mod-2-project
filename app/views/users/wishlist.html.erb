@@ -3,6 +3,13 @@
   <h2 class = "white-text centered">Your Wishlist</h2>
   <br><br>
   <div class="container-fluid transparent">
+    <% if @itineraries.empty? %>
+    <br><br>
+      <div class="centered">
+        <p class = "white-text">You Don't Currently have any items in your wishlist</p>
+        <p><%= link_to "Browse Itineraries", itineraries_path, class: "btn btn-info"%> </p>
+      </div>
+    <%else %>
     <%@itineraries.each.with_index do |itinerary, index|%>
       <% if index % 3 == 0%> <div class="row"> <%end%>
         <div class="col-sm-4">
@@ -10,18 +17,20 @@
             <img class="card-img-top card-image" src="<%=itinerary.picture_url%>" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title"><%=link_to itinerary.name, itineraries_path(itinerary)%></h5>
-              <p class="card-text"><%=link_to itinerary.user.user_name, user_path(itinerary.user)%></p>
-              <p class="card-text"><%=itinerary.budget_category%></p>
-              <p class="card-text"><%=itinerary.duration%></p>
-            </div>
-            <div class="card-body">
+              <p class="card-text">Author: <%=link_to itinerary.user.user_name, user_path(itinerary.user)%></p>
+              <p class="card-text">Budget: <%=itinerary.budget_category%></p>
+              <p class="card-text">Length: <%=itinerary.duration%></p>
+            <div class="card-body centered">
               <%= render partial: "partials/wishlist_buttons", locals: {object:itinerary} %>
             </div>
           </div>
         </div>
+      </div>
         <%if index%3 == 2%></div> <br><br> <%end%>
       <%end%>
     <% if @itineraries.length % 3 != 0 %> </div> <%end%>
     <br> <br>
   </div>
+  <%end%>
+
 </div>

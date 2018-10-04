@@ -5,6 +5,8 @@
     <div class="offset-3 col-6">
       <%= render partial: "partials/form_error", locals:{object:@itinerary} %>
       <%= form_for(@itinerary) do |f|%>
+        <%= f.label :picture,class: "form-text" %>
+        <%= f.file_field :picture_url%>
         <%= f.label :name,class: "form-text" %>
         <%= f.text_area :name,class: "form-control" %>
         <%= f.label :region,class: "form-text" %>
