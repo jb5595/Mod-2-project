@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_03_205301) do
+ActiveRecord::Schema.define(version: 2018_10_04_142944) do
 
   create_table "destinations", force: :cascade do |t|
     t.string "picture_url", default: "https://cdn.tutsplus.com/net/uploads/legacy/958_placeholders/placehold.gif"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2018_10_03_205301) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "picture_url", default: "https://cdn.tutsplus.com/net/uploads/legacy/958_placeholders/placehold.gif"
+    t.string "region"
   end
 
   create_table "relationships", force: :cascade do |t|

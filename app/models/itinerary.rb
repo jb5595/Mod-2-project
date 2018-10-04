@@ -18,6 +18,12 @@ class Itinerary < ApplicationRecord
 
   @@budget_categories = ["< $30/Day","$30-75/Day","$75-150/Day", "> $150/Day"]
 
+  @@regions = ["North America", "South America", "Europe", "Asia", "Africa", "Oceania"]
+
+  def self.regions
+    @@regions
+  end
+
   def shortened_name
     if self.name.length <= 10
       self.name

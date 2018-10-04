@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   end
 
   def feed
+    byebug
     @user = current_user
     if params[:search]
       @itineraries = @user.feed_filtered_by_destination(params[:search])
@@ -64,9 +65,9 @@ class UsersController < ApplicationController
     current_user.wishlist.delete(Itinerary.find(params[:itinerary_id]))
     redirect_to(session[:return_to])
   end
-  
+
   def wishlist
-    @wishlist = current_user.wishlist
+    @itineraries = current_user.wishlist
   end
 
   private

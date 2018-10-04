@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  # mount_uploader :thumbnail, ThumbnailUploader
   ##################Associations##########################
   has_many :itineraries
   has_many :destinations, through: :itineraries

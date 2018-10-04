@@ -21,6 +21,13 @@ class Destination < ApplicationRecord
     @@regions
   end
 
+  def self.destinations_which_match_itinerary_region(itinerary)
+    self.all.select do |destination|
+      byebug
+      destination.region == itinerary.region
+    end
+  end
+
   private
   #ensures uniform format for destination names to aid search queries
   def capitalize_name

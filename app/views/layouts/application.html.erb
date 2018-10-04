@@ -25,7 +25,8 @@
 
   <body>
     <nav class="navbar navbar-expand-md navbar-light bg-dark  ">
-    <%= link_to "Travellr", user_feed_path, class: "navbar-brand white-text" %>
+    <a class="navbar-brand white-text" href="#"><i class="far fa-compass"></i>Travellr</a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -41,8 +42,11 @@
       <li class="nav-item active">
         <%= link_to "Browse", itineraries_path, class: "nav-link white-text" %>
       </li>
+      <li class="nav-item active">
+        <%= link_to "Wishlist", wishlist_path(current_user), class: "nav-link white-text" %>
+      </li>
     </ul>
-    <%= link_to "Create Itinerary", new_itinerary_path, class: "btn btn-outline-light my-2 my-sm-0" %>
+    <%= link_to "Create Itinerary", new_itinerary_path, class: "btn btn-light my-2 my-sm-0" %>
     <%= link_to "Log Out", logout_path, class:"btn btn-info my-2 my-sm-0" %>
   </div>
 </nav>

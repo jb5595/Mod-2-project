@@ -142,8 +142,15 @@
   bottom: 0%;
   width: 100%;
 }
+  .no-bottom-margin{
+    margin-bottom: 0;
+  }
 
   #no-side-padding{
     padding-left: 0;
     padding-right:0;
+  }
+
+  #cyan-text{
+    color:#17a2b8;
   }

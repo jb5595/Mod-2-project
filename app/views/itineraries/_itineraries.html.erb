@@ -1,7 +1,7 @@
 
 <br>
   <% itineraries.each do |itinerary| %>
-      <div class="card col-9 offset-1" id = 'no-side-padding'>
+      <div class="card col-8 offset-2" id = 'no-side-padding'>
         <div class="card-header">
           <div class="row">
             <div class="col-10">
@@ -36,7 +36,9 @@
 
           <div class="row">
             <div class = 'col-6'>
-              <p class="card-text">Budget: <%=itinerary.budget_category%></p>
+              <p class="card-text no-bottom-margin">Budget: <%=itinerary.budget_category%></p>
+              <p class="card-text">Region: <%=itinerary.region%></p>
+
             </div>
             <div class = 'col-5 offset-1 row'>
               <div class="col-6">

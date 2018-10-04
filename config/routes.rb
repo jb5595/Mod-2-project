@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   post 'itineraries/:id/like', to: "itineraries#like"
   resources :itineraries do
     resources :destinations, only: [:create, :new]
+    resources :stops, only: [:create, :new]
   end
 
 

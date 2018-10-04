@@ -11,8 +11,8 @@ Destination.destroy_all
 Stop.destroy_all
 Itinerary.destroy_all
 
-destination1 = Destination.create(name:"Bali", description:"white sand beaches", region: "SEA", picture_url:"https://cdn.tutsplus.com/net/uploads/legacy/958_placeholders/placehold.gif")
-destination2 = Destination.create(name:"Saigon", description:"Scooter City", region: "SEA",picture_url:"https://cdn.tutsplus.com/net/uploads/legacy/958_placeholders/placehold.gif")
+destination1 = Destination.create(name:"Bali", description:"white sand beaches", region: "Asia", picture_url:"https://cdn.tutsplus.com/net/uploads/legacy/958_placeholders/placehold.gif")
+destination2 = Destination.create(name:"Saigon", description:"Scooter City", region: "Asia",picture_url:"https://cdn.tutsplus.com/net/uploads/legacy/958_placeholders/placehold.gif")
 destination3 = Destination.create(name:"Reyjavik", description:"Icelandic Capital", region: "Europe",picture_url:"https://cdn.tutsplus.com/net/uploads/legacy/958_placeholders/placehold.gif")
 
 user1 = User.create(first_name: "Jake", last_name: "berman", user_name: "jb5595", bio:"travel", password: "password", profile_pic:"https://cdn.tutsplus.com/net/uploads/legacy/958_placeholders/placehold.gif")
@@ -20,10 +20,10 @@ user2 = User.create(first_name: "John", last_name: "smith", user_name: "JohnSmit
 user3 = User.create(first_name: "Jane", last_name: "Doe", user_name: "JaneDoe", bio:"travel", password: "password", profile_pic:"https://cdn.tutsplus.com/net/uploads/legacy/958_placeholders/placehold.gif")
 
 
-itinerary1 = Itinerary.new(name:"Euro Trip", budget_category: "> $150/Day", duration: "2 weeks")
-itinerary2 = Itinerary.new(name:"SEA Adventure", budget_category: "< $30/Day", duration: "4 weeks")
-itinerary3 = Itinerary.new(name: "Foodie Trip",budget_category: "$75-150/Day", duration: "1 week")
-itinerary4 = Itinerary.new(name: "US Road Trip",budget_category: "$30-75/Day", duration: "1 week")
+itinerary1 = Itinerary.new(name:"Euro Trip", budget_category: "> $150/Day", region:"Europe" ,duration: "2 weeks", picture_url: "https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd27e6afea10629578acb8ca65e51d40&auto=format&fit=crop&w=800&q=60")
+itinerary2 = Itinerary.new(name:"SEA Adventure", budget_category: "< $30/Day", region: "Asia",duration: "4 weeks",picture_url: "https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd27e6afea10629578acb8ca65e51d40&auto=format&fit=crop&w=800&q=60")
+itinerary3 = Itinerary.new(name: "Foodie Trip",budget_category: "$75-150/Day", region:"Europe" ,duration: "1 week",picture_url: "https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd27e6afea10629578acb8ca65e51d40&auto=format&fit=crop&w=800&q=60")
+itinerary4 = Itinerary.new(name: "US Road Trip",budget_category: "$30-75/Day",region: "North America",duration: "1 week", picture_url: "https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd27e6afea10629578acb8ca65e51d40&auto=format&fit=crop&w=800&q=60")
 
 user1.itineraries << itinerary1
 user2.itineraries << itinerary2
