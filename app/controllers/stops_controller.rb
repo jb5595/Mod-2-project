@@ -1,18 +1,25 @@
 class StopsController < ApplicationController
 
+
+
   def new
-    @itinerary = Itinerary.find(params[:itinerary_id])
     @stop = Stop.new
-    @destination = @stop.build_destination
   end
 
   def create
     byebug
+    @stop = Stop.create(stop_params, destination_id: 1, itinerary_id:1)
+    redirect_to stop_path(@stop)
   end
+  def show
+    @stop = Stop.find(params[:id])
+  end
+
 
 
   private
 
   def stop_params
+    params.require(:stop).permit(:description, :image_url)
   end
 end

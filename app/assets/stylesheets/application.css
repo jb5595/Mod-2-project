@@ -155,12 +155,25 @@
   .fixed{
     position:fixed;
   }
+  .transparent{
+    background-color: transparent
+  }
+  .cyan-text{
+    color:#17a2b8;
+  }
+  .social-media-bar{
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: .3em;
+    border-radius: 5%;
+  }
+.card{
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.hidden{
+  display: none;
+}
 
   #no-side-padding{
     padding-left: 0;
     padding-right:0;
-  }
-
-  #cyan-text{
-    color:#17a2b8;
   }

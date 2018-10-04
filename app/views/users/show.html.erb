@@ -1,7 +1,18 @@
 <div class ='hero-image'>
     <br>
     <h4 class= "profile-name text-center"><%=@user.full_name%></h4> <br>
-    <img class = "profile-picture" src = '<%=@user.profile_pic%>'>
+    <img class = "profile-picture" src = '<%=@user.profile_pic.url%>'>
+    <% if @user.id == current_user.id %>
+      <div class="centered">
+        <%= form_for(@user) do |f| %>
+        <%= f.file_field :profile_pic, class: "" %>
+        <%= f.submit "Change Picture", class:"btn btn-info" %>
+        <%end%>
+      </div>
+
+      <%end%>
+  </div>
+
 </div>
 
 <div class ="container-fluid">

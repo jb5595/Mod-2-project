@@ -1,26 +1,27 @@
-<div class = "hero-image-small" >
-  <h5 class = "hero-text">Your Wishlist</h5>
-</div>
-<div class = "container-fluid">
+<div class = "full-page-hero-image" >
   <br><br>
-  <%@itineraries.each.with_index do |itinerary, index|%>
-    <% if index % 3 == 0%> <div class="row"> <%end%>
-      <div class="col-sm-4">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top card-image" src="<%=itinerary.picture_url%>" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title"><%=link_to itinerary.name, itineraries_path(itinerary)%></h5>
-            <p class="card-text"><%=link_to itinerary.user.user_name, user_path(itinerary.user)%></p>
-            <p class="card-text"><%=itinerary.budget_category%></p>
-            <p class="card-text"><%=itinerary.duration%></p>
-          </div>
-          <div class="card-body">
-            <%= render partial: "partials/wishlist_buttons", locals: {object:itinerary} %>
+  <h2 class = "white-text centered">Your Wishlist</h2>
+  <br><br>
+  <div class="container-fluid transparent">
+    <%@itineraries.each.with_index do |itinerary, index|%>
+      <% if index % 3 == 0%> <div class="row"> <%end%>
+        <div class="col-sm-4">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top card-image" src="<%=itinerary.picture_url%>" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"><%=link_to itinerary.name, itineraries_path(itinerary)%></h5>
+              <p class="card-text"><%=link_to itinerary.user.user_name, user_path(itinerary.user)%></p>
+              <p class="card-text"><%=itinerary.budget_category%></p>
+              <p class="card-text"><%=itinerary.duration%></p>
+            </div>
+            <div class="card-body">
+              <%= render partial: "partials/wishlist_buttons", locals: {object:itinerary} %>
+            </div>
           </div>
         </div>
-      </div>
-      <%if index%3 == 2%></div> <br><br> <%end%>
-    <%end%>
-  <% if @itineraries.length % 3 != 0 %> </div> <%end%>
-  <br> <br>
+        <%if index%3 == 2%></div> <br><br> <%end%>
+      <%end%>
+    <% if @itineraries.length % 3 != 0 %> </div> <%end%>
+    <br> <br>
+  </div>
 </div>

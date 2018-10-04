@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  # mount_uploader :thumbnail, ThumbnailUploader
+  mount_uploader :profile_pic, ThumbnailUploader
   ##################Associations##########################
   has_many :itineraries
   has_many :destinations, through: :itineraries
@@ -23,12 +23,17 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   has_secure_password
 
-
-
   ##################CallBacks##########################
-  # before_save :capitalize_name
+  before_save :capitalize_name
 
   ##################Methods##########################
+
+  @@default_profile_pic
+
+  def self.default_profile_pic
+    "https://cdn.tutsplus.com/net/uploads/legacy/958_placeholders/placehold.gif"
+  end
+  
   def capitalize_name
     self.first_name = self.first_name.capitalize
     self.last_name = self.last_name.capitalize

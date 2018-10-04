@@ -7,11 +7,19 @@ class UsersController < ApplicationController
     render :layout => "no_nav"
   end
 
+  def update
+    session[:return_to] = request.referer
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    redirect_to(session[:return_to])
+  end
+
+
+
   def create
 
     @user = User.new(user_params)
     if @user.save
-      byebug
       session[:user_id] = @user.id
       redirect_to user_feed_path
     else
@@ -71,7 +79,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:user_name, :first_name, :last_name,:password_confirmation,:password ,:bio, :thumbnail)
+    params.require(:user).permit(:user_name, :first_name, :last_name,:password_confirmation,:password ,:bio, :profile_pic)
   end
 
   def require_login

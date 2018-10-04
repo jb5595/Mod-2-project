@@ -5,10 +5,15 @@ class SessionsController < ApplicationController
   end
 
   def create
+    
     @user = User.find_by(user_name: params[:user_name])
-    return head(:forbidden) unless @user.authenticate(params[:password])
-    session[:user_id] = @user.id
-    redirect_to user_feed_path
+    if !@user.nil? &&  @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      redirect_to user_feed_path
+    else
+      flash[:notice] = "Username or Password is Incorrect"
+      render :new
+    end
   end
 
   def destroy

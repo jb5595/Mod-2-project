@@ -1,7 +1,7 @@
-<div class = "hero-image-small" >
-  <h5 class = "hero-text">Enter Trip Details</h5>
-</div>
-  <div class="container-fluid">
+<div class = "full-page-hero-image" >
+  <br><br>
+  <h2 class = "white-text centered">Enter Trip Details</h2>
+  <div class="container-fluid transparent">
     <div class="offset-3 col-6">
       <%= render partial: "partials/form_error", locals:{object:@itinerary} %>
       <%= form_for(@itinerary) do |f|%>
@@ -17,4 +17,5 @@
         <%= f.submit :Create,  class: "btn btn-info" %>
       <% end %>
   </div>
+</div>
 </div>

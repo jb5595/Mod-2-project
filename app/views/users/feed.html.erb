@@ -1,4 +1,5 @@
 <div class="full-page-hero-image">
+  <br>
 
     <h2 class= "white-text centered">Explore Your Feed </h2> <br><br>
     <div class="row">
@@ -20,8 +21,11 @@
 
 
   <% if @itineraries.empty? %>
-    <p>You Don't Currently Follow Anyone</p>
-    <p><%= link_to "Browse Itineraries", itineraries_path %> </p>
+  <br><br>
+    <div class="centered">
+      <p class = "white-text">You Don't Currently Follow Anyone</p>
+      <p><%= link_to "Browse Itineraries", itineraries_path, class: "btn btn-info"%> </p>
+    </div>
   <%else %>
     <%= render partial: 'itineraries/itineraries', locals: {itineraries: @itineraries} %>
   <%end%>

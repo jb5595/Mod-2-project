@@ -5,6 +5,7 @@
   <%end%>
 
       <%= form_for(@user) do |f| %>
+      <%= f.file_field :profile_pic %>
       <%= f.label :user_name, class: "form-text" %>
       <%= f.text_area :user_name,class: "form-control"%>
       <%= f.label :password, class: "form-text" %>
