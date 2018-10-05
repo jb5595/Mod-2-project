@@ -9,9 +9,16 @@
   <!-- Displays Edit Button if Itinerary is your own -->
   <% if @itinerary.user_id == current_user.id%>
   <div class="text-center">
-    <%= form_tag("/itineraries/#{@itinerary.id}/edit", method: :get) do %>
-      <%=submit_tag "Edit Itinerary Details", class: "btn btn-info" %>
-    <%end%>
+      <div class="btn-group">
+
+      <%= form_tag("/itineraries/#{@itinerary.id}/edit", method: :get) do %>
+        <%=submit_tag "Edit Itinerary", class: "btn btn-warning" %>
+      <%end%>
+      <%= form_tag("/itineraries/#{@itinerary.id}/delete", method: :get) do %>
+        <%=submit_tag "Delete", class: "btn btn-danger" %>
+      <%end%>
+    </div>
+
   </div>
     <br>
   <%end%>

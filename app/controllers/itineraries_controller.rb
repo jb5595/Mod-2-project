@@ -54,6 +54,11 @@ class ItinerariesController < ApplicationController
     redirect_to(session[:return_to])
   end
 
+  def destroy
+    Itinerary.destroy(params[:id])
+    redirect_to user_feed_path
+  end
+
   private
 
   def itinerary_params

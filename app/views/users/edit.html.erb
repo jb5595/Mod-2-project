@@ -1,0 +1,21 @@
+<div class = "full-page-hero-image">
+  <br><br>
+  <div class="offset-3 col-6">
+  <% if @user.errors %>
+    <%= render partial: "partials/form_error", locals:{object:@user} %>
+  <%end%>
+
+      <%= form_for(@user) do |f| %>
+      <%= f.file_field :profile_pic %>
+      <%= f.label :user_name, class: "form-text" %>
+      <%= f.text_area :user_name,class: "form-control"%>
+      <%= f.label :first_name, class: "form-text" %>
+      <%= f.text_area :first_name, class: "form-control"%>
+      <%= f.label :last_name, class: "form-text"%>
+      <%= f.text_area :last_name, class: "form-control"%> <br>
+      <%= f.submit :Submit,  class: "btn btn-info" %>
+      <%end%>
+
+  </div>
+
+</div>

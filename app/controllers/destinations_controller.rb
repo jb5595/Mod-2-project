@@ -6,7 +6,6 @@ class DestinationsController < ApplicationController
   end
 
   def create
-    byebug
     @itinerary =  Itinerary.find(params[:destination][:itinerary_id])
     @destination = Destination.new(destination_params)
     if @destination.save
@@ -34,7 +33,8 @@ class DestinationsController < ApplicationController
 
   def destroy
     session[:return_to] = request.referer
-    current_user.(params[:id])
+    Destination.destroy(params[:id])
+    Stop.find_by(destination_id: params[:id]).destroy
     redirect_to(session[:return_to])
   end
 

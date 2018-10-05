@@ -9,16 +9,12 @@
 
 <div class ="container-fluid">
   <% if @user.id == current_user.id %>
-    <div class="centered">
-      <%= form_for(@user) do |f| %>
-      <%= f.file_field :profile_pic, class: "" %>
-      <%= f.submit "Change Picture", class:"btn btn-info" %>
-      <%end%>
-    </div>
-    <%end%>
-<br><br>
 
-  <% if @user.id != current_user.id %>
+    <div class="centered">
+      <%=link_to "Edit Profile", edit_user_path(@user), class: "btn btn-warning"%>
+
+    </div>
+  <%else%>
   <div class="centered">
       <!-- Follow Button -->
       <% if !current_user.following.include?(@user)%>

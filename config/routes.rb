@@ -26,7 +26,8 @@ Rails.application.routes.draw do
 
   ######### Itineraries Routes #########
   post 'itineraries/:id/like', to: "itineraries#like"
-  resources :itineraries do
+  get '/itineraries/:id/delete', to: "itineraries#destroy"
+  resources :itineraries, only: [:create, :new, :show, :edit, :update, :index]do
     resources :destinations, only: [:create, :new]
     resources :stops, only: [:create, :new]
   end

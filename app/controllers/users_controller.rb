@@ -7,11 +7,17 @@ class UsersController < ApplicationController
     render :layout => "no_nav"
   end
 
-  def update
-    session[:return_to] = request.referer
+  def edit
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to(session[:return_to])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to user_path(@user)
+    else
+      render :edit
+    end
   end
 
 
